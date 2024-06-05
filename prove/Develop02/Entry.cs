@@ -1,12 +1,19 @@
-public class Entry
+class Entry
 {
-    public string _date;
-    public string _promptText;
-    public string _entryText;
+    public string Prompt { get; }
+    public string Response { get; }
+    public string Date { get; }
 
-    public void Display()
+    public Entry(string prompt, string response, string date)
     {
-      Console.WriteLine($" {_date} {_promptText} {_entryText}");
+        Prompt = prompt;
+        Response = response;
+        Date = date;
+    }
+
+    public override string ToString()
+    {
+        return $"Date: {Date}\nQuestion: {Prompt}\nResponse: {Response}\n";
     }
 }
 
