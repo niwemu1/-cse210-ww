@@ -1,34 +1,21 @@
-
-using System;
-using System.Net.Quic;
-public class Scripture
+public class Word
 {
-    private Reference _reference;
-    private List<Word> _word;
+    public string Text { get; }
+    public bool Hidden { get; set; }
 
-   
-
-    public Scripture(Reference Reference, string text)
+    public Word(string text)
     {
-      _reference = Reference;
-      
+        Text = text;
+        Hidden = false;
     }
 
-    public void HideRandomWords(int numberToHide)
+    public void Hide()
     {
-      Console.WriteLine("Psalms 95:1-3 Come, let us sing for joy to the LORD; let us shout aloud to the Rock of our salvation. Let us come before him with thanksgiving and extol him with music and song. For the LORD is the great God, the great King above all gods.");    
+        Hidden = true;
     }
 
-    public string GetDisplayText()
+    public override string ToString()
     {
-      string text = $"{_reference}, {_word}";
-      return text;
-      
-    }
-
-    public bool IsCompletelyHidden()
-    {
-      return false;
-        
+        return Hidden ? "______" : Text;
     }
 }

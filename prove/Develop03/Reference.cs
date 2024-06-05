@@ -2,29 +2,17 @@ using System;
 
 public class Reference
 {
-    private string _book;
-    private int _chapter;
-    private int _verse;
-    private int _endVerse;
+    public string Text { get; }
 
-    public Reference(string book, int chapter, int verse)
+    // Constructor
+    public Reference(string text)
     {
-       _book = book;
-       _chapter = chapter;
-       _verse = verse;
+        Text = text;
     }
 
-    public Reference(string book, int chapter, int startVerse, int endVerse)
+    // Override ToString method to display the reference
+    public override string ToString()
     {
-       _book = book;
-       _chapter = chapter;
-       _verse = startVerse;
-       _endVerse = endVerse; 
+        return Text;
     }
-
-    public string GetDisplayText()
-    {
-      return $" {_book} ({_chapter}) {_verse}-{_endVerse}";
-    }
-
 }
